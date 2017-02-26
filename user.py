@@ -44,3 +44,44 @@ class User: #user class is a class object with username, password and email fiel
 
             connection.close()
             return user
+
+
+class UserRegister(Resource): #The userregister class creates a user object and stores to the database
+
+    parser = reqparse.RequestParser()
+
+
+    parser.add_argument('username',
+                        type=str,
+                        required=True,
+                        help="This field cannot be left blank!"
+                        )
+    parser.add_argument('password',
+                        type=str,
+                        required=True,
+                        help="This field cannot be left blank!"
+                        )
+
+    parser.add_argument('email',
+                        type=str,
+                        required=True,
+                        help="This field cannot be left blank!"
+                        )
+
+    def post(self):
+        data = UserRegister.parser.parse_args()
+
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+
+
+        #Create query
+        query = "INSERT INTO users VALUES (NULL, ?, ?, ?)"
+
+        #store to DB
+        cursor.execute(query, (data['username'], data['password']))
+        #commit changes and close database connection. 
+        connection.commit()
+        connection.close()
+
+        return {"message": "User created successfully."}, 201
