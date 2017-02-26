@@ -90,6 +90,9 @@ class UserRegister(Resource): #The userregister class creates a user object and 
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
+        #check for existing user with the same database. If none exists create new user.
+        if User.find_by_username(data['username']):
+            return {"message": "A user with that username already exists"}, 400
 
         #Create query
         query = "INSERT INTO users VALUES (NULL, ?, ?, ?)"
