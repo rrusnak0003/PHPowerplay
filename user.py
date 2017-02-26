@@ -80,7 +80,7 @@ class UserRegister(Resource): #The userregister class creates a user object and 
 
         #store to DB
         cursor.execute(query, (data['username'], data['password']))
-        #commit changes and close database connection. 
+        #commit changes and close database connection.
         connection.commit()
         connection.close()
 
