@@ -7,7 +7,7 @@ from user import UserRegister
 #app.py creates application for json endpoints for use with front end.
 
 app = Flask(__name__)
-app.secret_key = '&6yhgTrFjKilo)9KJhjGHg'
+app.secret_key = 'addy'
 api = Api(app)
 
 jwt = JWT(app, authenticate, identity) # /auth

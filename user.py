@@ -9,42 +9,58 @@ class User: #user class is a class object with username, password and email fiel
         self.password = password
         self.email = email
 
-        @classmethod
-        def find_by_username(cls, username): #find user in db by username
-            connection = sqlite3.connect('data.db')
-            cursor = connection.cursor()
+    @classmethod
+    def find_by_username(cls, username): #find user in db by username
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
 
-            query = "SELECT * FROM users WHERE username=?"
+        query = "SELECT * FROM users WHERE username=?"
 
-            result = cursor.execute(query, (username,))
-            row = result.fetchone()
-            if row:
-                user = cls(*row)
+        result = cursor.execute(query, (username,))
+        row = result.fetchone()
+        if row:
+            user = cls(*row)
 
-            else:
-                user = None
+        else:
+            user = None
 
-            connection.close()
-            return user
+        connection.close()
+        return user
 
-        @classmethod
-        def find_by_id(cls, _id): #find user in db by id
-            connection = sqlite3.connect('data.db')
-            cursor = connection.cursor()
+    @classmethod
+    def find_by_id(cls, _id): #find user in db by id
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
 
-            query = "SELECT * FROM users WHERE id=?"
+        query = "SELECT * FROM users WHERE id=?"
 
-            result = cursor.execute(query, (_id,))
-            row = result.fetchone()
-            if row:
-                user = cls(*row)
+        result = cursor.execute(query, (_id,))
+        row = result.fetchone()
+        if row:
+            user = cls(*row)
 
-            else:
-                user = None
+        else:
+            user = None
 
-            connection.close()
-            return user
+        connection.close()
+        return user
+    @classmethod
+    def find_by_email(cls, email): #find user in db by email
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
 
+        query = "SELECT * FROM users WHERE email=?"
+
+        result = cursor.execute(query, (email,))
+        row = result.fetchone()
+        if row:
+            user = cls(*row)
+
+        else:
+            user = None
+
+        connection.close()
+        return user
 
 class UserRegister(Resource): #The userregister class creates a user object and stores to the database
 
@@ -52,21 +68,21 @@ class UserRegister(Resource): #The userregister class creates a user object and 
 
 
     parser.add_argument('username',
-                        type=str,
-                        required=True,
-                        help="This field cannot be left blank!"
-                        )
+        type=str,
+        required=True,
+        help="This field cannot be left blank!"
+    )
     parser.add_argument('password',
-                        type=str,
-                        required=True,
-                        help="This field cannot be left blank!"
-                        )
+        type=str,
+        required=True,
+        help="This field cannot be left blank!"
+    )
 
     parser.add_argument('email',
-                        type=str,
-                        required=True,
-                        help="This field cannot be left blank!"
-                        )
+        type=str,
+        required=True,
+        help="This field cannot be left blank!"
+    )
 
     def post(self):
         data = UserRegister.parser.parse_args()
@@ -79,7 +95,7 @@ class UserRegister(Resource): #The userregister class creates a user object and 
         query = "INSERT INTO users VALUES (NULL, ?, ?, ?)"
 
         #store to DB
-        cursor.execute(query, (data['username'], data['password']))
+        cursor.execute(query, (data['username'], data['password'], data['email']))
         #commit changes and close database connection.
         connection.commit()
         connection.close()
