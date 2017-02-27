@@ -1,14 +1,25 @@
 from flask import Flask, request, render_template
-from flask_restful import Resource, Api, reqparse
-from flask_jwt import JWT, jwt_required
+from flask_restful import Api
+from flask_jwt import JWT
+
 from security import authenticate, identity
-from user import UserRegister
+from resources.user import UserRegister
+from resources.powerplant import Powerplant, PowerplantList
+from resources.region import Region, RegionList
+
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'addy'
+api = Api(app)
+from powerplant import Powerplant, PowerplantList
 
 #app.py creates application for json endpoints for use with front end.
 
-app = Flask(__name__)
-app.secret_key = 'addy'
-api = Api(app)
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 jwt = JWT(app, authenticate, identity) # /auth
 
@@ -34,4 +45,8 @@ def register():
 
 api.add_resource(UserRegister, '/registration') # register endpoint
 
-app.run(port=5000, debug=True)
+
+if __name__ == '__main__':
+    from db import db
+    db.init_app(app)
+    app.run(port=5000, debug=True)
