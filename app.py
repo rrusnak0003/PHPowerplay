@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'addy'
 api = Api(app)
-from powerplant import Powerplant, PowerplantList
+
 
 #app.py creates application for json endpoints for use with front end.
 
@@ -39,7 +39,12 @@ def register():
     return render_template('register.html')
 
 
+api.add_resource(Region, '/region/<string:name>')
+api.add_resource(Powerplant, '/powerplant/<string:name>')
+api.add_resource(PowerplantList, '/powerplants')
 
+api.add_resource(RegionList, '/regions')
+#api.add_resource(UserRegister, '/register')
 
 
 

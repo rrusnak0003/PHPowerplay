@@ -65,8 +65,8 @@ class Powerplant(Resource):
         if powerplant is None:
             powerplant = Powerplant(name, **data)
         else:
-            powerplant.price = data['price']
-            powerplant.store_id = data['store_id']
+            powerplant.revenue = data['revenue']
+            powerplant.store_id = data['region_id']
 
 
         powerplant.save_to_db()

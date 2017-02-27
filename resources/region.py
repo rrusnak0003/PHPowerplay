@@ -6,7 +6,7 @@ class Region(Resource):
         region = RegionModel.find_by_name(name)
         if region:
             return region.json()
-        return{'message': 'Store not found'}, 404
+        return{'message': 'Region not found'}, 404
 
 
     def post(self, name):

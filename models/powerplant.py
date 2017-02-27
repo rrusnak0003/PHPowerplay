@@ -16,7 +16,7 @@ class PowerplantModel(db.Model):
         self.region_id= region_id
 
     def json(self):
-        return {'name': self.name, 'revenue': self.price}
+        return {'name': self.name, 'revenue': self.revenue}
 
 
     @classmethod
