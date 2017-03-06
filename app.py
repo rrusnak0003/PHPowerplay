@@ -56,4 +56,4 @@ api.add_resource(UserRegister, '/registration') # register endpoint
 if __name__ == '__main__':
     from db import db
     db.init_app(app)
-    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)), debug=True)
+    app.run(port=5000, debug=True)
