@@ -1,0 +1,17 @@
+{% extends "base.jinja2" %}
+{%  block content %}
+    <div class="page-header">
+    <h1>User Accounts</h1>
+    </div>
+    <div class="list-group">
+
+    {%  for user in users %}
+    <a href="{{ url_for('users.get_user_page', email=user.email) }}" class="list-group-item">
+        <h4 class="list-group-item-heading">   {{  user.email }}</h4>
+
+    </a>
+    {%  endfor %}
+    </div>
+    <a class="btn btn-success" href="{{  url_for('users.create_user') }}"><span class="glyphicon glyphicon-plus"></span>Create new</a>
+
+{%  endblock %}

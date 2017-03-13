@@ -1,0 +1,46 @@
+{% extends "base.jinja2" %}
+{%  block content %}
+    <div class="form-size">
+    <form action ="{{  url_for('users.create_user') }}" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="username" class="form-control" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        </div>
+            <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="permission" name="permission" id="permission" autocomplete="off" vaue="1" checked> User
+          </label>
+          <label class="btn btn-primary">
+            <input type="permission" name="permission" id="permission" vaue="2" autocomplete="off"> Analyst
+          </label>
+          <label class="btn btn-primary">
+            <input type="permission" name="permission" id="permission" vaue="3" autocomplete="off"> Administrator
+          </label>
+        </div>
+
+                <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="active" name="active" id="active" autocomplete="off" vaue="True" checked> Activated
+          </label>
+          <label class="btn btn-primary">
+            <input type="active" name="active" id="active" vaue="False" autocomplete="off"> Deactivated
+          </label>
+
+        </div>
+
+        <button type="submit" class="btn btn-default">Create new</button>
+
+
+
+    </form>
+    </div>
+{%  endblock %}

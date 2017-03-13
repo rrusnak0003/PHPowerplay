@@ -1,0 +1,22 @@
+{% extends "base.jinja2" %}
+{%  block content %}
+    <div class="page-header">
+    <h1>Alert <small> for '{{  user.email }}'</small></h1>
+    </div>
+    <p>User email <strong>{{  user.email }}</strong></p>
+
+
+    <div class="panel panel-default">
+    <div class="panel-body">
+
+        {%  if alert.active %}
+        <a class="btn btn-danger" href="{{  url_for('alerts.deactivate_alert', alert_id=alert._id) }}" role="button">Deactivate alert</a>
+        {% else %}
+                <a class="btn btn-success" href="{{  url_for('alerts.activate_alert', alert_id=alert._id) }}" role="button">Activate alert</a>
+                <a class="btn btn-danger" href="{{  url_for('alerts.delete_alert', alert_id=alert._id) }}" role="button">Permanently delete alert</a>
+        {% endif %}
+        <a class="btn btn-warning" href="{{ url_for('alerts.check_alert_price', alert_id=alert.id) }}" role="button">Check alert</a>
+    </div>
+    </div>
+
+{%  endblock %}
