@@ -33,8 +33,10 @@ def register_user():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        active = False
+        permission=1
         try:
-            if User.register_user(username,email, password):
+            if User.register_user(username,email, password,active,permission):
                 session['email'] = email
                 return redirect(url_for(".user_alerts"))
         except UserErrors.UserError as e:

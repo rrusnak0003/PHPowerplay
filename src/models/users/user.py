@@ -37,7 +37,7 @@ class User(object):
         return True
 
     @staticmethod
-    def register_user(username, email, password):
+    def register_user(username, email, password, active, permission):
         """
         This method registers a user using e-mail and password.
         The password already comes hashed as a sha-512
@@ -54,7 +54,7 @@ class User(object):
         user_data = Database.find_one(UserConstants.COLLECTION, {"username": username})
         if user_data is not None:
             raise UserErrors.UserAlreadyRegisteredError("The username you used to register already exists.")
-        User(username,email, Utils.hash_password(password), False, 1).save_to_db()
+        User(username,email, Utils.hash_password(password), active, permission).save_to_db()
         return True
 
     def save_to_db(self):
@@ -76,7 +76,7 @@ class User(object):
         return cls(**Database.find_one(UserConstants.COLLECTION,{'email': email}))
 
     @classmethod
-    def find_by_email(cls, username):
+    def find_by_username(cls, username):
         return cls(**Database.find_one(UserConstants.COLLECTION,{'username': username}))
 
     @classmethod

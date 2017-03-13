@@ -9,11 +9,11 @@
     <div class="panel panel-default">
     <div class="panel-body">
 
-        {%  if alert.active %}
-        <a class="btn btn-danger" href="{{  url_for('alerts.deactivate_alert', alert_id=alert._id) }}" role="button">Deactivate alert</a>
+        {%  if user.active %}
+        <a class="btn btn-danger" href="{{  url_for('users.deactivate_user', user_id=user._id) }}" role="button">Deactivate user</a>
         {% else %}
-                <a class="btn btn-success" href="{{  url_for('alerts.activate_alert', alert_id=alert._id) }}" role="button">Activate alert</a>
-                <a class="btn btn-danger" href="{{  url_for('alerts.delete_alert', alert_id=alert._id) }}" role="button">Permanently delete alert</a>
+                <a class="btn btn-success" href="{{  url_for('users.activate_user', user_id=user._id) }}" role="button">Activate alert</a>
+                <a class="btn btn-danger" href="{{  url_for('users.delete_user', user_id=alert._id) }}" role="button">Permanently delete alert</a>
         {% endif %}
         <a class="btn btn-warning" href="{{ url_for('alerts.check_alert_price', alert_id=alert.id) }}" role="button">Check alert</a>
     </div>
