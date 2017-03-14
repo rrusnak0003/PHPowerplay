@@ -22,6 +22,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{  url_for('stores.index') }}">Stores</a></li>
                 <li><a href="{{  url_for('alerts.index') }}">Alerts</a></li>
+
                 <li><a href="{{  url_for('users.admin') }}">Admin</a></li>
             </ul>
             {%  if session['email'] %}

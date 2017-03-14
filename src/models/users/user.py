@@ -31,8 +31,11 @@ class User(object):
         user_data = Database.find_one(UserConstants.COLLECTION, {"username": username}) #Password in sha512 - >pbkdf2_sha512
         if user_data is None:
             raise UserErrors.UserNotExistsError("Your user does not exist.")
+        #if not user_data['active']:
+            #raise UserErrors.UserDisabledError("Your user is disabled.")
         if not Utils.check_hashed_password(password, user_data['password']):
             raise UserErrors.IncorrectPasswordError("Your password was wrong.")
+
 
         return True
 
@@ -85,6 +88,24 @@ class User(object):
 
     def get_alerts(self):
         return Alert.find_by_user_email(self.email)
+
+    @classmethod
+    def find_by_id(cls, user_id):
+        return cls(**Database.find_one(UserConstants.COLLECTION, {'_id': user_id}))
+
+    def deactivate(self):
+        self.active = False
+        self.save_to_mongo()
+
+    def activate(self):
+        self.active = True
+        self.save_to_mongo()
+
+    def save_to_mongo(self):
+        Database.update(UserConstants.COLLECTION, {"_id": self._id}, self.json())
+
+    def delete(self):
+        Database.remove(UserConstants.COLLECTION, {'_id': self._id})
 
     #def get_users(self):
     #    return User.find_all()

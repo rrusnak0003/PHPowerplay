@@ -15,12 +15,12 @@ user_blueprint = Blueprint('users', __name__)
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login_user():
     if request.method == 'POST':
-        email = request.form['email']
+        username = request.form['username']
         password = request.form['password']
         try:
-            if User.is_login_valid(email, password):
-                session['email'] = email
-                return redirect(url_for(".user_alerts"))
+            if User.is_login_valid(username, password):
+                session['email'] = username
+                return redirect(url_for('home'))
         except UserErrors.UserError as e:
             return e.message
 
@@ -37,8 +37,8 @@ def register_user():
         permission=1
         try:
             if User.register_user(username,email, password,active,permission):
-                session['email'] = email
-                return redirect(url_for(".user_alerts"))
+                #session['email'] = email
+                return redirect(url_for('home'))
         except UserErrors.UserError as e:
             return e.message
 
@@ -70,14 +70,32 @@ def admin():
 
 
 
-@user_blueprint.route('/get_user_page/<string:email>')
+@user_blueprint.route('/get_user_page/<string:user_id>')
 @user_decorators.requires_login
-def get_user_page(email):
-    user = User.find_by_email(email)
+def get_user_page(user_id):
+    user = User.find_by_id(user_id)
     return render_template('users/edit_users.jinja2', user=user)
 
 
+@user_blueprint.route('/deactivate/<string:user_id>')
+@user_decorators.requires_login
+def deactivate_user(user_id):
+    user = User.find_by_id(user_id)
+    user.deactivate()
+    return render_template('users/edit_users.jinja2', user=user)
 
+@user_blueprint.route('/activate/<string:user_id>')
+@user_decorators.requires_login
+def activate_user(user_id):
+    user = User.find_by_id(user_id)
+    user.activate()
+    return render_template('users/edit_users.jinja2', user=user)
+
+@user_blueprint.route('/delete/<string:user_id>')
+@user_decorators.requires_login
+def delete_user(user_id):
+    User.find_by_id(user_id).delete()
+    return redirect(url_for('users.admin'))
 
 
 
