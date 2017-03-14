@@ -7,8 +7,18 @@
 
     {%  for user in users %}
     <a href="{{ url_for('users.get_user_page', user_id=user._id) }}" class="list-group-item">
-        <h4 class="list-group-item-heading">   {{  user.email }}</h4>
+        <h4 class="list-group-item-heading"> {{  '<span class="glyphicon glyphicon-remove-circle"></span>' if not user.active else '' }} {{  user.username }}</h4>
+        <p class="list-group-item-text">Email {{  user.email }}<br/></p>
+        <p class="list-group-item-text">Role:
+        {% if user.permission==1 %}
+            User
+        {% elif user.permission==2 %}
+            Analyst
+        {% else %}
+            Administrator
+        {% endif %}
 
+        <br/></p>
     </a>
     {%  endfor %}
     </div>

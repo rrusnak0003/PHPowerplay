@@ -100,12 +100,13 @@ def delete_user(user_id):
 
 
 @user_blueprint.route('/create', methods=['GET', 'POST'])
+@user_decorators.requires_login
 def create_user():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         username = request.form['username']
-        permission = request.form['permission']
+        permission = int(request.form['permission'])
         active = request.form['active']
 
         try:
