@@ -1,5 +1,7 @@
 import uuid
 
+from flask.ext.login import login_manager
+
 from src.common.database import Database
 from src.common.utils import Utils
 import src.models.users.errors as UserErrors
@@ -8,13 +10,14 @@ from src.models.alerts.alert import Alert
 
 
 class User(object):
-    def __init__(self, username, email, password, active, permission, _id=None):
+    def __init__(self, username, email, password, active, permission, authenticated, _id=None):
         self.username = username
         self.email = email
         self.password = password
         self.permission = 3 if username is 'administrator' else permission
         self.active = True if username is 'administrator' else active
         self._id = uuid.uuid4().hex if _id is None else _id
+        self.authenticated=authenticated
 
     def __repr__(self):
         return "<User {}>".format(self.email)
@@ -31,8 +34,8 @@ class User(object):
         user_data = Database.find_one(UserConstants.COLLECTION, {"username": username}) #Password in sha512 - >pbkdf2_sha512
         if user_data is None:
             raise UserErrors.UserNotExistsError("Your user does not exist.")
-        #if not user_data['active']:
-            #raise UserErrors.UserDisabledError("Your user is disabled.")
+        if not user_data['active']:
+            raise UserErrors.UserDisabledError("Your user is disabled.")
         if not Utils.check_hashed_password(password, user_data['password']):
             raise UserErrors.IncorrectPasswordError("Your password was wrong.")
 
@@ -57,7 +60,7 @@ class User(object):
         user_data = Database.find_one(UserConstants.COLLECTION, {"username": username})
         if user_data is not None:
             raise UserErrors.UserAlreadyRegisteredError("The username you used to register already exists.")
-        User(username,email, Utils.hash_password(password), active, permission).save_to_db()
+        User(username,email, Utils.hash_password(password), active, permission, False).save_to_db()
         return True
 
     def save_to_db(self):
@@ -71,7 +74,8 @@ class User(object):
             "email": self.email,
             "password": self.password,
             "active":self.active,
-            "permission":self.permission
+            "permission":self.permission,
+            "authenticated":self.authenticated
         }
 
     @classmethod
@@ -106,6 +110,20 @@ class User(object):
 
     def delete(self):
         Database.remove(UserConstants.COLLECTION, {'_id': self._id})
+
+    def is_active(self):
+        return self.active
+
+    def get_id(self):
+        return self._id
+
+    def is_authenticated(self):
+        """Return True if the user is authenticated."""
+        return self.authenticated
+
+    def is_anonymous(self):
+        """False, as anonymous users aren't supported."""
+        return False
 
     #def get_users(self):
     #    return User.find_all()

@@ -18,11 +18,27 @@
     <a class="btn btn-danger" href="{{  url_for('users.delete_user', user_id=user._id) }}" role="button">Permanently delete user</a>
     <br>
     <br>
-    <div class="btn-group" role="group" aria-label="Permission">
-      <button type="button"  class="btn btn-{{  'success active' if  user.permission==1 else 'secondary' }} ">User</button>
-      <button type="button" class="btn btn-{{  'success active' if  user.permission==2 else 'secondary' }}">Analyst</button>
-      <button type="button" class="btn btn-{{  'success active' if  user.permission==3 else 'secondary' }} ">Administrator</button>
-    </div>
+
+
+
+
+    <form action ="{{  url_for('users.change_permission', user_id=user._id) }}" method="post">
+            <div class="form-group">
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-{{ 'success active' if user.permission==1 else 'primary'}}">
+                <input type="radio" name="permission" id="permission" autocomplete="off" value=1> User
+              </label>
+              <label class="btn btn-{{ 'success active' if user.permission==2 else 'primary'}}">
+                <input type="radio" name="permission" id="permission" value=2 autocomplete="off"> Analyst
+              </label>
+              <label class="btn btn-{{ 'success active' if user.permission==3 else 'primary'}}">
+                <input type="radio" name="permission" id="permission" value=3 autocomplete="off"> Administrator
+              </label>
+            </div>
+            </div>
+        <button type="submit" class="btn btn-default">Save permission</button>
+    </form>
+
 
     </div>
     </div>
