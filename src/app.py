@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask.ext.login import LoginManager
 
 from src.common.database import Database
 
@@ -10,7 +11,6 @@ app.secret_key = "123"
 @app.before_first_request
 def init_db():
     Database.initialize()
-
 
 @app.route('/')
 def home():

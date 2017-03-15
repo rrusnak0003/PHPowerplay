@@ -1,7 +1,7 @@
 {% extends "base.jinja2" %}
 {%  block content %}
     <div class="form-size">
-    <form action ="{{  url_for('users.login_user') }}" method="post">
+    <form action ="{{  url_for('users.login') }}" method="post">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="username" class="form-control" id="username" name="username" placeholder="Username">

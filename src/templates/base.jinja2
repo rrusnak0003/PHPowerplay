@@ -22,23 +22,20 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{  url_for('stores.index') }}">Stores</a></li>
                 <li><a href="{{  url_for('alerts.index') }}">Alerts</a></li>
-
+                {%  if current_user.permission ==3 %}
                 <li><a href="{{  url_for('users.admin') }}">Admin</a></li>
-                <li><a href="{{  url_for('users.profile') }}">Profile</a></li>
-
-
+                {%  endif %}
             </ul>
-            {%  if session['email'] %}
+            {%  if current_user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{  url_for('users.user_alerts') }}"><span class="glyphicon glyphicon-alert"></span> Your Alerts</a></li>
-                    <li><a href="{{  url_for('users.logout_user') }}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                    <li><a href="{{  url_for('users.deactivate_account') }}">Deactivate Account</a></li>
+                    <li><a href="{{  url_for('users.logout') }}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
 
                 </ul>
             {%  else %}
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{  url_for('users.register_user') }}"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
-                    <li><a href="{{  url_for('users.login_user') }}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+                    <li><a href="{{  url_for('users.login') }}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
                 </ul>
             {%  endif %}
         </div>
