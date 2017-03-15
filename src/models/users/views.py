@@ -84,7 +84,7 @@ def admin():
     return render_template('users/admin.jinja2', users=users)
 
 @user_blueprint.route('/profile/<string:user_id>')
-@user_decorators.requires_login
+@login_required
 def profile(user_id):
     user = User.find_by_id(user_id)
     return render_template('users/profile.jinja2', user=user)
@@ -134,7 +134,7 @@ def delete_user(user_id):
     return redirect(url_for('users.admin'))
 
 @user_blueprint.route('/deactivate_account/<string:user_id>')
-@user_decorators.requires_login
+@login_required
 def deactivate_account(user_id):
     User.find_by_id(user_id).deactivate()
     return redirect(url_for('home'))
