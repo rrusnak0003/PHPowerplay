@@ -9,12 +9,9 @@
     <div class="panel panel-default">
     <div class="panel-body">
 
-        {%  if user.active %}
-        <a class="btn btn-warning" href="{{  url_for('users.deactivate_account', user_id=user._id) }}" role="button">Deactivate user</a>
-        {% else %}
-                <a class="btn btn-success" href="{{  url_for('users.activate_account', user_id=user._id) }}" role="button">Activate user</a>
 
-        {% endif %}
+        <a class="btn btn-warning" href="{{  url_for('users.deactivate_account', user_id=current_user._id) }}" role="button">Deactivate user</a>
+
 
 
     </div>

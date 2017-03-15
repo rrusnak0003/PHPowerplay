@@ -23,7 +23,7 @@
                 <li><a href="{{  url_for('stores.index') }}">Stores</a></li>
                 <li><a href="{{  url_for('alerts.index') }}">Alerts</a></li>
                 {%  if current_user.is_authenticated %}
-                <li><a href="{{  url_for('users.profile') }}">Profile</a></li>
+                <li><a href="{{  url_for('users.profile', user_id= current_user._id)}}">Profile</a></li>
                 {%  endif %}
                 {%  if current_user.permission ==3 %}
                 <li><a href="{{  url_for('users.admin') }}">Admin</a></li>

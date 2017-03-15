@@ -86,8 +86,8 @@ def admin():
 @user_blueprint.route('/profile/<string:user_id>')
 @login_required
 def profile(user_id):
-    user = User.find_by_id(user_id)
-    return render_template('users/profile.jinja2', user=user)
+    user=User.find_by_id(user_id)
+    return render_template('users/profile.jinja2',user=user)
 
 @user_blueprint.route('/get_user_page/<string:user_id>')
 @login_required
