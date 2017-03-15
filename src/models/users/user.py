@@ -14,8 +14,8 @@ class User(object):
         self.username = username
         self.email = email
         self.password = password
-        self.permission = 3 if username is 'administrator' else permission
-        self.active = True if username is 'administrator' else active
+        self.permission = 3 if username == 'administrator' else permission
+        self.active = True if username == 'administrator' else active
         self._id = uuid.uuid4().hex if _id is None else _id
         self.authenticated=authenticated
 

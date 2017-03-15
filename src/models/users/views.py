@@ -99,6 +99,7 @@ def get_user_page(user_id):
 def deactivate_user(user_id):
     user = User.find_by_id(user_id)
     user.deactivate()
+
     return render_template('users/edit_users.jinja2', user=user)
 
 
@@ -125,6 +126,7 @@ def activate_user(user_id):
 @user_decorators.requires_roles(3)
 def delete_user(user_id):
     User.find_by_id(user_id).delete()
+
     return redirect(url_for('users.admin'))
 
 
