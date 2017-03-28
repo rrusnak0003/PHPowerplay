@@ -1,0 +1,21 @@
+#login-wrapper{
+  width: 60%;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  text-align: center;
+  
+  form{
+    padding: 20px;
+  }
+  input{
+    padding: 10px;
+    width: 50%;
+    margin: 5px;
+  }
+}
+
+#login-form{
+  border: solid thin black;
+  border-radius: 25px;
+}
