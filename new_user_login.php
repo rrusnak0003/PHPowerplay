@@ -21,6 +21,9 @@
         
     }
     
+    /**
+    *** @param $role - the role of the user 
+    */ 
     function redirect($role){
         
         if($role == "admin"){
@@ -37,6 +40,9 @@
         }
     }
     
+    /**
+     ** insert the user into the db if is a valid user name and passwords match 
+     */
     function insertUser($db){
         
         $username = $_GET['new_user_name'];
@@ -47,7 +53,7 @@
         
         if(isValidUserName($db) && $password == $confirm_password){
             $query = "INSERT INTO users (role, username, password, email_address)
-                      VALUES ('$role', '$username', '$password', '$email')";
+                      VALUES ('$role', '$username', MD5('$password'), '$email')";
             $insert = $db->query($query);
             
             if(!$insert){
@@ -56,7 +62,7 @@
             }
             else{
                 redirect($role);
-            }
+            
         }
         else{
             header("Location: index.php");
