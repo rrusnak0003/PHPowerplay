@@ -62,6 +62,7 @@
             }
             else{
                 redirect($role);
+            }
             
         }
         else{
