@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>PowerPlay</title>
   
+  <link rel="icon" href=" /home/ubuntu/workspace/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/home/ubuntu/workspace/favicon.ico" type="image/x-icon"/>
+  
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 
