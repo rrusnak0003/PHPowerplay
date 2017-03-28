@@ -16,17 +16,17 @@
   <div id="login-wrapper">
   <div id="login-form">
     
-    <form action="#" id="returning_user_form">
+    <form method="GET" action="returning_user_login.php" id="returning_user_form">
       <h2> Login </h2>
       <input type="text" name="returning_user_name" placeholder="user name" required/>
       <br>
-      <input type="text" name="returning_user_password" placeholder="password" required>
+      <input type="password" name="returning_user_password" placeholder="password" required>
       <br>
       <button class="btn btn-success" type="submit">Submit</button>
       
     </form>
     
-    <form action="#" id="new_user_form">
+    <form method="GET" action="new_user_login.php" id="new_user_form">
       <h2> New User? </h2>
       <input type="text" name="new_user_name" placeholder="user name" required/>
       <br>
