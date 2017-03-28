@@ -37,6 +37,8 @@
       <br>
       <input type="password" name="new_user_confirm_password" placeholder="confirm password" required/> 
       <br>
+      <input type="text" name="new_user_email_address" placeholder="email address" required/>
+      <br>
       <input type="radio" value="player" name="role" checked> Player </input>
       <input type="radio" value="analyst" name="role"> Analyst </input>
       <input type="radio" value="admin" name="role"> Admin </input>
