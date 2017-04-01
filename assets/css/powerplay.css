@@ -1,0 +1,29 @@
+#login-wrapper {
+  width: 60%;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  text-align: center; }
+  #login-wrapper form {
+    padding: 20px; }
+  #login-wrapper input {
+    padding: 10px;
+    width: 50%;
+    margin: 5px; }
+  #login-wrapper select {
+    padding: 10px;
+    width: 50%;
+    margin: 5px; }
+
+#login-form {
+  border: solid thin black;
+  border-radius: 25px; }
+  #login-form input[type="radio"] {
+    padding: 5px;
+    width: auto; }
+
+#bar {
+  max-height: 500px;
+  max-width: 500px; }
+
+/*# sourceMappingURL=powerplay.css.map */

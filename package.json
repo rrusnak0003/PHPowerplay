@@ -1,0 +1,15 @@
+{
+  "name": "phpowerplay",
+  "version": "1.0.0",
+  "description": "PowerPlay Project for CS 411 @ ODU",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team Black",
+  "license": "ISC",
+  "dependencies": {
+    "grunt-sass": "^2.0.0",
+    "snapsvg": "^0.5.1"
+  }
+}
