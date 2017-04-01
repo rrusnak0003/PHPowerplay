@@ -1,7 +1,5 @@
 # PHPowerplay
 
-![alt text](https://www.amli.com/blog/wp-content/uploads/2013/06/MemeGeneratorNet.jpg "Logo Title Text 1")
-
 Who thought Python would be tough? This is a rewrite of PowerPlay in good ol' fashioned LAMP
 
 ## Break down of File Structure

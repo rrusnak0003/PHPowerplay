@@ -22,4 +22,8 @@
     padding: 5px;
     width: auto; }
 
+#bar {
+  max-height: 500px;
+  max-width: 500px; }
+
 /*# sourceMappingURL=powerplay.css.map */

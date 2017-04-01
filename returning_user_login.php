@@ -1,17 +1,15 @@
 <?php 
-    /**
-    *** @param $role - the role of the user 
-    */ 
-    function redirect($role){
+
+    function redirect($role, $id){
         
         if($role == "admin"){
-            header("Location: admin/index.php");
+            header("Location: admin/index.php?player_id=$id");
         }
         else if($role == "analyst"){
-            header("Location: analyst/index.php");
+            header("Location: analyst/index.php?player_id=$id");
         }
         else if($role =="player"){
-            header("Location: player/index.php");
+            header("Location: player/index.php?player_id=$id");
         }
         else{
             echo "hmmmmmmm that role isn't recognized<br>";
@@ -31,7 +29,7 @@
             //so only one record exists in users 
             //$user[1] has the role of the user logging in 
             echo $user[1] . "<br>";
-            redirect($user[1]);
+            redirect($user[1], $user[0]);
         }
         else {
             echo "user not found";

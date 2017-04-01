@@ -9,6 +9,7 @@
   "author": "Team Black",
   "license": "ISC",
   "dependencies": {
-    "grunt-sass": "^2.0.0"
+    "grunt-sass": "^2.0.0",
+    "snapsvg": "^0.5.1"
   }
 }

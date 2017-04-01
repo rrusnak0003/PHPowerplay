@@ -1,5 +1,7 @@
 <?php 
     
+    require_once("includes/database.php");
+    
     function isValidUserName($db){
         
         $username = $_GET['new_user_name'];
@@ -24,16 +26,16 @@
     /**
     *** @param $role - the role of the user 
     */ 
-    function redirect($role){
+    function redirect($role, $id){
         
         if($role == "admin"){
-            header("Location: admin/index.php");
+            header("Location: admin/index.php?player_id=$id");
         }
         else if($role == "analyst"){
-            header("Location: analyst/index.php");
+            header("Location: analyst/index.php?player_id=$id");
         }
         else if($role =="player"){
-            header("Location: player/index.php");
+            header("Location: player/index.php?player_id=$id");
         }
         else{
             echo "hmmmmmmm that role isn't recognized<br>";
@@ -51,6 +53,8 @@
         $email = $_GET['new_user_email_address'];
         $role = $_GET['role'];
         
+        
+        
         if(isValidUserName($db) && $password == $confirm_password){
             $query = "INSERT INTO users (role, username, password, email_address)
                       VALUES ('$role', '$username', MD5('$password'), '$email')";
@@ -61,7 +65,8 @@
                 print_r($insert);
             }
             else{
-                redirect($role);
+                $id = Database::get_player_id_from_name($username);
+                redirect($role, $id);
             }
             
         }
