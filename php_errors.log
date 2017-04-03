@@ -24,3 +24,17 @@
 [01-Apr-2017 04:04:39 UTC] PHP Fatal error:  require_once(): Failed opening required '../includes/helpers.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/player/index.php on line 3
 [01-Apr-2017 04:04:39 UTC] PHP Stack trace:
 [01-Apr-2017 04:04:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[02-Apr-2017 02:59:28 UTC] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /home/ubuntu/workspace/includes/helper_functions.php on line 39
+[02-Apr-2017 02:59:28 UTC] PHP Stack trace:
+[02-Apr-2017 02:59:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[02-Apr-2017 15:49:28 UTC] PHP Fatal error:  Call to undefined function get_all_econ_costs() in /home/ubuntu/workspace/player/index.php on line 13
+[02-Apr-2017 15:49:28 UTC] PHP Stack trace:
+[02-Apr-2017 15:49:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[02-Apr-2017 15:51:16 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/includes/database.php on line 85
+[02-Apr-2017 15:51:16 UTC] PHP Stack trace:
+[02-Apr-2017 15:51:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[02-Apr-2017 15:55:36 UTC] PHP Parse error:  syntax error, unexpected '";</script>"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/ubuntu/workspace/player/index.php on line 14
+[02-Apr-2017 16:00:08 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/player/index.php on line 15
+[03-Apr-2017 22:17:28 UTC] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE) in /home/ubuntu/workspace/includes/database.php on line 123
+[03-Apr-2017 22:17:28 UTC] PHP Stack trace:
+[03-Apr-2017 22:17:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0

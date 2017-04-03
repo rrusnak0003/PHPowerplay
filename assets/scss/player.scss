@@ -1,5 +1,29 @@
-#bar{
+.bar{
     max-height: 500px !important;
-    max-width: 500px !important;
+    //max-width: 500px !important;
 }
 
+.line{
+    max-height: 500px !important;
+    //max-width: 500px !important;
+}
+
+.player-container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#username {
+    text-align: center;
+    font-size: 6.0rem;
+}
+
+#player-data-container{
+    margin-top: 5%;
+}
+
+.graph-container{
+    //border: solid thin black;
+}
