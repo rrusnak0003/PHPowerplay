@@ -38,3 +38,152 @@
 [03-Apr-2017 22:17:28 UTC] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE) in /home/ubuntu/workspace/includes/database.php on line 123
 [03-Apr-2017 22:17:28 UTC] PHP Stack trace:
 [03-Apr-2017 22:17:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 22:58:19 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[03-Apr-2017 22:58:19 UTC] PHP Stack trace:
+[03-Apr-2017 22:58:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 22:58:19 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[03-Apr-2017 22:58:19 UTC] PHP Warning:  Missing argument 1 for Database::get_all_econ_ror(), called in /home/ubuntu/workspace/player/index.php on line 17 and defined in /home/ubuntu/workspace/includes/database.php on line 123
+[03-Apr-2017 22:58:19 UTC] PHP Stack trace:
+[03-Apr-2017 22:58:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 22:58:19 UTC] PHP   2. Database::get_all_econ_ror() /home/ubuntu/workspace/player/index.php:17
+[03-Apr-2017 22:59:57 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[03-Apr-2017 22:59:57 UTC] PHP Stack trace:
+[03-Apr-2017 22:59:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 22:59:57 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[03-Apr-2017 22:59:57 UTC] PHP Warning:  Missing argument 1 for Database::get_all_econ_ror(), called in /home/ubuntu/workspace/player/index.php on line 17 and defined in /home/ubuntu/workspace/includes/database.php on line 126
+[03-Apr-2017 22:59:57 UTC] PHP Stack trace:
+[03-Apr-2017 22:59:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 22:59:57 UTC] PHP   2. Database::get_all_econ_ror() /home/ubuntu/workspace/player/index.php:17
+[03-Apr-2017 23:00:00 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[03-Apr-2017 23:00:00 UTC] PHP Stack trace:
+[03-Apr-2017 23:00:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:00:00 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[03-Apr-2017 23:00:00 UTC] PHP Warning:  Missing argument 1 for Database::get_all_econ_ror(), called in /home/ubuntu/workspace/player/index.php on line 17 and defined in /home/ubuntu/workspace/includes/database.php on line 126
+[03-Apr-2017 23:00:00 UTC] PHP Stack trace:
+[03-Apr-2017 23:00:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:00:00 UTC] PHP   2. Database::get_all_econ_ror() /home/ubuntu/workspace/player/index.php:17
+[03-Apr-2017 23:00:02 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[03-Apr-2017 23:00:02 UTC] PHP Stack trace:
+[03-Apr-2017 23:00:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:00:02 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[03-Apr-2017 23:00:02 UTC] PHP Warning:  Missing argument 1 for Database::get_all_econ_ror(), called in /home/ubuntu/workspace/player/index.php on line 17 and defined in /home/ubuntu/workspace/includes/database.php on line 126
+[03-Apr-2017 23:00:02 UTC] PHP Stack trace:
+[03-Apr-2017 23:00:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:00:02 UTC] PHP   2. Database::get_all_econ_ror() /home/ubuntu/workspace/player/index.php:17
+[03-Apr-2017 23:00:09 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[03-Apr-2017 23:00:09 UTC] PHP Stack trace:
+[03-Apr-2017 23:00:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:00:09 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[03-Apr-2017 23:00:09 UTC] PHP Warning:  Missing argument 1 for Database::get_all_econ_ror(), called in /home/ubuntu/workspace/player/index.php on line 17 and defined in /home/ubuntu/workspace/includes/database.php on line 126
+[03-Apr-2017 23:00:09 UTC] PHP Stack trace:
+[03-Apr-2017 23:00:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:00:09 UTC] PHP   2. Database::get_all_econ_ror() /home/ubuntu/workspace/player/index.php:17
+[03-Apr-2017 23:01:58 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[03-Apr-2017 23:01:58 UTC] PHP Stack trace:
+[03-Apr-2017 23:01:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[03-Apr-2017 23:01:58 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:04:43 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:04:43 UTC] PHP Stack trace:
+[04-Apr-2017 00:04:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:04:43 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:05:23 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:05:23 UTC] PHP Stack trace:
+[04-Apr-2017 00:05:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:05:23 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:05:35 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:05:35 UTC] PHP Stack trace:
+[04-Apr-2017 00:05:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:05:35 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:05:39 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:05:39 UTC] PHP Stack trace:
+[04-Apr-2017 00:05:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:05:39 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:05:45 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:05:45 UTC] PHP Stack trace:
+[04-Apr-2017 00:05:45 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:05:45 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:06:26 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:06:26 UTC] PHP Stack trace:
+[04-Apr-2017 00:06:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:06:26 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:06:49 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:06:49 UTC] PHP Stack trace:
+[04-Apr-2017 00:06:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:06:49 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:45:10 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/includes/database.php on line 181
+[04-Apr-2017 00:45:10 UTC] PHP Stack trace:
+[04-Apr-2017 00:45:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:45:24 UTC] PHP Warning:  Missing argument 2 for Database::get_econ_cost_by_tech(), called in /home/ubuntu/workspace/player/index.php on line 12 and defined in /home/ubuntu/workspace/includes/database.php on line 47
+[04-Apr-2017 00:45:24 UTC] PHP Stack trace:
+[04-Apr-2017 00:45:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:45:24 UTC] PHP   2. Database::get_econ_cost_by_tech() /home/ubuntu/workspace/player/index.php:12
+[04-Apr-2017 00:45:24 UTC] PHP Fatal error:  Call to undefined function get_current_operational_performance_by_type() in /home/ubuntu/workspace/includes/database.php on line 180
+[04-Apr-2017 00:45:24 UTC] PHP Stack trace:
+[04-Apr-2017 00:45:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:45:24 UTC] PHP   2. Database::get_current_operational_performance() /home/ubuntu/workspace/player/index.php:24
+[04-Apr-2017 00:45:47 UTC] PHP Fatal error:  Call to undefined function get_current_operational_performance_by_type() in /home/ubuntu/workspace/includes/database.php on line 180
+[04-Apr-2017 00:45:47 UTC] PHP Stack trace:
+[04-Apr-2017 00:45:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:45:47 UTC] PHP   2. Database::get_current_operational_performance() /home/ubuntu/workspace/player/index.php:24
+[04-Apr-2017 00:46:36 UTC] PHP Fatal error:  Call to undefined function get_current_operational_performance_by_type() in /home/ubuntu/workspace/includes/database.php on line 180
+[04-Apr-2017 00:46:36 UTC] PHP Stack trace:
+[04-Apr-2017 00:46:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:46:36 UTC] PHP   2. Database::get_current_operational_performance() /home/ubuntu/workspace/player/index.php:24
+[04-Apr-2017 00:58:06 UTC] PHP Parse error:  syntax error, unexpected ';', expecting '(' in /home/ubuntu/workspace/includes/database.php on line 228
+[04-Apr-2017 00:58:06 UTC] PHP Stack trace:
+[04-Apr-2017 00:58:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 00:58:15 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/includes/database.php on line 232
+[04-Apr-2017 00:58:15 UTC] PHP Stack trace:
+[04-Apr-2017 00:58:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:22:18 UTC] PHP Fatal error:  Cannot redeclare Database::get_historical_operational_performance() in /home/ubuntu/workspace/includes/database.php on line 316
+[04-Apr-2017 01:22:18 UTC] PHP Stack trace:
+[04-Apr-2017 01:22:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:22:37 UTC] PHP Fatal error:  Cannot redeclare Database::get_historical_operational_performance() in /home/ubuntu/workspace/includes/database.php on line 316
+[04-Apr-2017 01:22:37 UTC] PHP Stack trace:
+[04-Apr-2017 01:22:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:13 UTC] PHP Fatal error:  Call to undefined method Database::get_reliability_types() in /home/ubuntu/workspace/includes/database.php on line 254
+[04-Apr-2017 01:23:13 UTC] PHP Stack trace:
+[04-Apr-2017 01:23:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:13 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:23:36 UTC] PHP Fatal error:  Call to undefined method Database::get_reliability_types() in /home/ubuntu/workspace/includes/database.php on line 254
+[04-Apr-2017 01:23:36 UTC] PHP Stack trace:
+[04-Apr-2017 01:23:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:36 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:23:55 UTC] PHP Fatal error:  Call to undefined method Database::get_reliability_types() in /home/ubuntu/workspace/includes/database.php on line 254
+[04-Apr-2017 01:23:55 UTC] PHP Stack trace:
+[04-Apr-2017 01:23:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:55 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:23:56 UTC] PHP Fatal error:  Call to undefined method Database::get_reliability_types() in /home/ubuntu/workspace/includes/database.php on line 254
+[04-Apr-2017 01:23:56 UTC] PHP Stack trace:
+[04-Apr-2017 01:23:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:56 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:23:56 UTC] PHP Fatal error:  Call to undefined method Database::get_reliability_types() in /home/ubuntu/workspace/includes/database.php on line 254
+[04-Apr-2017 01:23:56 UTC] PHP Stack trace:
+[04-Apr-2017 01:23:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:56 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:23:57 UTC] PHP Fatal error:  Call to undefined method Database::get_reliability_types() in /home/ubuntu/workspace/includes/database.php on line 254
+[04-Apr-2017 01:23:57 UTC] PHP Stack trace:
+[04-Apr-2017 01:23:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:23:57 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:24:30 UTC] PHP Fatal error:  Call to undefined function get_average_operational_performance_by_type_per_round() in /home/ubuntu/workspace/includes/database.php on line 261
+[04-Apr-2017 01:24:30 UTC] PHP Stack trace:
+[04-Apr-2017 01:24:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:24:30 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:25:54 UTC] PHP Fatal error:  Cannot use object of type mysqli_result as array in /home/ubuntu/workspace/includes/database.php on line 238
+[04-Apr-2017 01:25:54 UTC] PHP Stack trace:
+[04-Apr-2017 01:25:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 01:25:54 UTC] PHP   2. Database::get_historical_operational_performance() /home/ubuntu/workspace/player/index.php:32
+[04-Apr-2017 01:25:54 UTC] PHP   3. Database::get_average_operational_performance_by_type_per_round() /home/ubuntu/workspace/includes/database.php:261
+[04-Apr-2017 02:36:30 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ubuntu/workspace/includes/database.php on line 333
+[04-Apr-2017 02:36:30 UTC] PHP Stack trace:
+[04-Apr-2017 02:36:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 02:37:49 UTC] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING) in /home/ubuntu/workspace/player/index.php on line 40
+[04-Apr-2017 02:49:11 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/player/index.php on line 45
+[04-Apr-2017 03:14:27 UTC] PHP Fatal error:  Call to undefined function get_average_environmental_performance_by_pollutant() in /home/ubuntu/workspace/includes/database.php on line 390
+[04-Apr-2017 03:14:27 UTC] PHP Stack trace:
+[04-Apr-2017 03:14:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 03:14:27 UTC] PHP   2. Database::get_historical_environmental_performance() /home/ubuntu/workspace/player/index.php:45
+[04-Apr-2017 03:14:45 UTC] PHP Fatal error:  Call to undefined function get_average_environmental_performance_by_pollutant() in /home/ubuntu/workspace/includes/database.php on line 390
+[04-Apr-2017 03:14:45 UTC] PHP Stack trace:
+[04-Apr-2017 03:14:45 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[04-Apr-2017 03:14:45 UTC] PHP   2. Database::get_historical_environmental_performance() /home/ubuntu/workspace/player/index.php:45
