@@ -80,7 +80,7 @@ new Chartist.Bar('#current-environmental-performance-line', {
 }, {
     //fullWidth: true,
     chartPadding: {
-        right: 40
+        left: 40
     },
     plugins: [
         Chartist.plugins.legend({
@@ -96,7 +96,7 @@ new Chartist.Line('#previous-environmental-performance-line', {
 }, {
     //fullWidth: true,
     chartPadding: {
-        right: 40
+        left: 40
     },
     plugins: [
         Chartist.plugins.legend({

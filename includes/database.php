@@ -1,16 +1,18 @@
 <?php
 
+require_once('../login.php');
+
 class Database{
     
     //hostname, username, password, database 
     protected static $db;
     protected static $_instance = null;
     
-    public static function instance(){
+    public static function instance($hn, $un, $pw, $db){
         
         if(is_null( self::$_instance)){
             self::$_instance = new static();
-            self::$db  = new mysqli('localhost', 'dheesch', '', 'powerplay-test');
+            self::$db  = new mysqli($hn, $un, $pw, $db);
             
             if(self::$db->connect_error) die($db->connect_error);
         }
@@ -38,7 +40,7 @@ class Database{
         $query = "SELECT tech_type, cost, rate_of_return FROM economic_performance where round_id in (
                     SELECT MAX(round_id) FROM `economic_performance`
                   )
-                  and player_id=1";
+                  and player_id=$player_id";
         $result = self::$db->query($query);
         
         if( $result ){
@@ -425,6 +427,6 @@ class Database{
     
 }
 
-Database::instance();
+Database::instance($hn, $un, $pw, $db);
 
 ?>

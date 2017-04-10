@@ -1,16 +1,18 @@
 <?php
 
+require_once('../login.php');
+
 class Helpers{
     
     //hostname, username, password, database 
     protected static $db;
     protected static $_instance = null;
     
-    public static function instance(){
+    public static function instance($hn, $un, $pw, $db){
         
         if(is_null( self::$_instance)){
             self::$_instance = new static();
-            self::$db  = new mysqli('localhost', 'dheesch', '', 'powerplay-test');
+            self::$db  = new mysqli($hn, $un, $pw, $db);
             
             if(self::$db->connect_error) die($db->connect_error);
         }
@@ -49,6 +51,6 @@ class Helpers{
     
 }
 
-Helpers::instance();
+Helpers::instance($hn, $un, $pw, $db);
 
 ?>
