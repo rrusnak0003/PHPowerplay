@@ -199,3 +199,7 @@
 [10-Apr-2017 22:35:01 UTC] PHP   2. require_once() /home/ubuntu/workspace/player/index.php:3
 [10-Apr-2017 22:35:01 UTC] PHP   3. Helpers::instance() /home/ubuntu/workspace/includes/helper_functions.php:54
 [10-Apr-2017 22:35:01 UTC] PHP   4. mysqli->mysqli() /home/ubuntu/workspace/includes/helper_functions.php:15
+[10-Apr-2017 22:44:56 UTC] PHP Fatal error:  Access to undeclared static property: Database::$dby in /home/ubuntu/workspace/includes/database.php on line 442
+[10-Apr-2017 22:44:56 UTC] PHP Stack trace:
+[10-Apr-2017 22:44:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
+[10-Apr-2017 22:44:56 UTC] PHP   2. Database::get_fuel_forecast() /home/ubuntu/workspace/player/index.php:52

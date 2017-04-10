@@ -104,3 +104,19 @@ new Chartist.Line('#previous-environmental-performance-line', {
         })
     ]
 });
+
+new Chartist.Line('#fuel-forecast', {
+    labels: years,
+    series: fuel_forecast,
+  
+}, {
+    //fullWidth: true,
+    chartPadding: {
+        left: 40
+    },
+    plugins: [
+        Chartist.plugins.legend({
+            position: 'bottom'
+        })
+    ]
+});

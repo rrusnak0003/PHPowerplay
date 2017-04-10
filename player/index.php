@@ -48,6 +48,15 @@
         
         echo "<script> var historical_environmental_performance = $historical_environmental_performance; </script>";
     
+    
+        $fuel_forecast = Database::get_fuel_forecast();
+        
+        print_r($fuel_forecast);
+        echo "<script> var fuel_forecast=$fuel_forecast</script>";
+        
+        $years = Database::get_fuel_forecast_years();
+        print_r($years);
+        echo "<script> var years=$years</script>";
     }
     else {
         echo "you did not provide a user id!";
@@ -128,6 +137,18 @@
                 <div id="previous-environmental-performance-line" class="bar"></div>    
             </div>
         </div> <!-- end of environmental performance graphs -->
+        
+        <div class="row graph-row"> <!-- beginning of fuel forecast and production commit -->
+            <div class="col-lg-6 graph-container">
+                <h3> fuel forecast </h3>
+                <div id="fuel-forecast" class="line"></div>    
+            </div>
+            
+            <div class="col-lg-6 graph-container">
+                <h3> production commit </h3>
+                <div id="previous-environmental-performance-line" class="bar"></div>    
+            </div>
+        </div> <!-- end of fuel forecast and production commit -->
     </div>
         
     </div>

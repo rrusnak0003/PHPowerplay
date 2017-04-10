@@ -423,8 +423,70 @@ class Database{
     }
     
     
+    public static function get_fuel_forecast_by_type($type){
+        
+        //print_r($type);
+        $query = "SELECT cost FROM fuel_forecast WHERE fuel='$type' ORDER BY year ASC";
+        //echo $query . "<br>";
+        $result = self::$db->query($query);
+        //print_r($result);
+        $data = array();
+        //$return_val = array();
+        
+        if($result){
+            $costs = $result->fetch_all(MYSQLI_ASSOC);
+            
+            foreach($costs as $cost){
+                array_push($data, (float) $cost['cost']);
+            }
+        }
+        
+        //print_r($data);
+        return array('name' => $type, 'data' => $data);
+        
+        
+        
+    }
     
+    public static function get_fuel_forecast(){
+        
+        $query = "SELECT DISTINCT fuel FROM fuel_forecast";
+        
+        $result = self::$db->query($query);
+        
+        $data = array();
+        
+        if($result){
+            $types = $result->fetch_all(MYSQLI_ASSOC);
+            
+            foreach($types as $type){
+                array_push($data, self::get_fuel_forecast_by_type($type['fuel']));
+            }
+        }
+        
+        return json_encode($data);
+        
+    }
     
+    public static function get_fuel_forecast_years(){
+        
+        $query = "SELECT DISTINCT year FROM fuel_forecast ORDER BY year ASC;";
+        
+        $result = self::$db->query($query);
+        $data = array();
+        
+        if($result){
+            $years = $result->fetch_all(MYSQLI_ASSOC);
+            
+            foreach($years as $year){
+                array_push($data, (int) $year['year']);
+            }
+        }
+        
+        return json_encode($data);
+        
+        
+    }
 }
 
 Database::instance($hn, $un, $pw, $db);
