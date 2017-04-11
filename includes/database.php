@@ -10,7 +10,7 @@ class Database{
         
         if(is_null( self::$_instance)){
             self::$_instance = new static();
-            self::$db  = new mysqli('localhost', 'dheesch', '', 'powerplay-test');
+            self::$db  = new mysqli('127.0.0.1', 'dheesch', '', 'powerplay-test');
             
             if(self::$db->connect_error) die($db->connect_error);
         }
