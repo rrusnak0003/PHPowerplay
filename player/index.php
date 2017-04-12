@@ -1,6 +1,7 @@
 <?php 
     require_once('../includes/database.php');
     require_once('../includes/helper_functions.php');
+    
     if(isset($_GET['player_id'])){
         $id = $_GET['player_id'];
         //echo $_GET['player_id'];
@@ -44,19 +45,23 @@
         
         $historical_environmental_performance = json_encode(Database::get_historical_environmental_performance($id));
         
-        print_r($historical_environmental_performance);
+        //print_r($historical_environmental_performance);
         
         echo "<script> var historical_environmental_performance = $historical_environmental_performance; </script>";
     
     
         $fuel_forecast = Database::get_fuel_forecast();
         
-        print_r($fuel_forecast);
+        //print_r($fuel_forecast);
         echo "<script> var fuel_forecast=$fuel_forecast</script>";
         
         $years = Database::get_fuel_forecast_years();
-        print_r($years);
+        //print_r($years);
         echo "<script> var years=$years</script>";
+        
+        $monthly_commit_data = Database::get_yearly_production_commit_by_type();
+        print_r($monthly_commit_data);
+        echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
     }
     else {
         echo "you did not provide a user id!";
@@ -146,7 +151,7 @@
             
             <div class="col-lg-6 graph-container">
                 <h3> production commit </h3>
-                <div id="previous-environmental-performance-line" class="bar"></div>    
+                <div id="yearly-production-commit" class="line"></div>    
             </div>
         </div> <!-- end of fuel forecast and production commit -->
     </div>

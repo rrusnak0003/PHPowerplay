@@ -1,6 +1,6 @@
 <?php
 
-require_once('../login.php');
+require_once( '../login.php');
 
 class Database{
     
@@ -487,6 +487,126 @@ class Database{
         
         
     }
+    
+    public static function get_current_month_production_commit_by_type($type){
+        
+    }
+    
+    public static function get_monthly_production_commit_by_type_for_year($type){
+        
+        $query = "SELECT DATE, TYPE , AVG( production_commit ) prod_commit
+                  FROM production_commit
+                  JOIN plants ON production_commit.plant_id = plants.plant_id
+                  WHERE type='$type'
+				  group by date
+                  ORDER BY date desc
+                  limit 0, 13";
+        
+        //echo $query . "<br>";
+        
+        $result = self::$db->query($query);
+        
+        //print_r($result);
+        $data = array();
+        
+        if($result){
+            $production_commit = $result->fetch_all(MYSQLI_ASSOC); 
+            
+            foreach($production_commit as $production){
+                array_push($data, (float) $production['prod_commit']);
+            }
+        }
+        //print_r($data);
+        return array('name' => $type, 'data' => $data);
+        
+    }
+    
+    public static function get_yearly_production_commit_by_type(){
+        
+        $query = "SELECT DISTINCT type FROM plants ORDER BY type ASC";
+        //echo $query;
+        $result = self::$db->query($query);
+        
+        $data = array();
+        
+               
+        if($result){
+            
+            $types = $result->fetch_all(MYSQLI_ASSOC);
+            
+            foreach($types as $type){
+                //echo $type['type'];
+                array_push($data, self::get_monthly_production_commit_by_type_for_year($type['type']));
+
+            }
+            
+        }
+        
+        
+        return json_encode($data);
+        
+        
+        
+    }
+    
+    public static function get_average_production_commit_by_type($type){
+        
+    }
+    
+    /* queeeeeries 
+    ##get the capacity and production commit for the latest month for each plant 
+
+SELECT name, zone_name, type, capacity, production_commit  FROM `production_commit` join plants 
+on production_commit.plant_id=plants.plant_id
+where date in (
+    select max(date) from production_commit
+    )
+order by zone_id asc, name asc
+
+##get average production commit for each type for current month 
+SELECT TYPE , AVG( production_commit ) 
+FROM production_commit
+JOIN plants ON production_commit.plant_id = plants.plant_id
+WHERE DATE
+IN (
+
+SELECT MAX( DATE ) 
+FROM production_commit
+)
+GROUP BY TYPE 
+ORDER BY TYPE 
+
+##get average production commit for each type for the year 
+SELECT TYPE , AVG( production_commit ) 
+FROM production_commit
+JOIN plants ON production_commit.plant_id = plants.plant_id
+WHERE DATE >2016 -07 -01
+GROUP BY TYPE 
+ORDER BY TYPE 
+LIMIT 0 , 30
+
+
+##get average production commit fore each type for each month of the current year 
+SELECT DATE, 
+TYPE , AVG( production_commit ) 
+FROM production_commit
+JOIN plants ON production_commit.plant_id = plants.plant_id
+WHERE DATE >2016 -07 -01
+GROUP BY DATE, 
+TYPE 
+ORDER BY DATE ASC , 
+TYPE ASC 
+
+##get average productio commit for each type for all time 
+SELECT TYPE , AVG( production_commit ) 
+FROM production_commit
+JOIN plants ON production_commit.plant_id = plants.plant_id
+GROUP BY TYPE 
+ORDER BY TYPE 
+
+*/
+    
+    
 }
 
 Database::instance($hn, $un, $pw, $db);
