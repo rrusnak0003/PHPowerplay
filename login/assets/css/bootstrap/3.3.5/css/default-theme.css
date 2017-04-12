@@ -1,0 +1,45 @@
+.container-profile {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  overflow: hidden;
+  border: 2px solid #428BCA;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.container-small {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  overflow: hidden;
+  border: 2px solid #428BCA;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.light-dark-top {
+  background-color: #FBFBFB;
+  border-bottom: 1px solid #EEE;
+  padding-bottom: 15px;
+}
+
+.light-dark-bottom {
+  background-color: #FBFBFB;
+  border-top: 1px solid #EEE;
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+
+.light-dark-special {
+  padding-bottom: 0px;
+}
+
+.btn-large {
+  width: 80%;
+  font-size: 18px;
+}
+
+.borderless thead tr td {
+  border: none;
+}
