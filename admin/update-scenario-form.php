@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <form method="GET" action="update-scenario-form-submit.php">
     <h2> Wind Variables </h2>
 
@@ -42,4 +38,3 @@
     </br>
     <button class="btn btn-success" type="submit">Submit</button>
 </form>
-
