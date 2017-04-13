@@ -64,7 +64,65 @@ function get_average_economic_performance($db){
               group by tech_type
               order by tech_type";
 
+    $results = $db->query($query);
+    $return_val = array();
     
+    $tech_type = array();
+    $cost = array();
+    $ror = array(); 
+    
+    if($results){
+        $data = $results->fetch_all(MYSQLI_ASSOC);
+        
+        foreach($data as $row){
+            array_push($tech_type, $row['tech_type']);
+            array_push($cost, (int) $row['cost']);
+            array_push($ror, (int) $row['ror']);
+        }
+        
+        $return_val = array($tech_type, $cost, $ror);
+    }
+    
+    return json_encode($return_val);
+    
+    
+    
+    
+    
+}
+function get_average_environmental_performance($db){
+    $query = "SELECT zone_name, AVG(carbon_dioxide) co2, AVG(nitrous_oxide) no, 
+              AVG(carbon_monoxide) co, AVG(sulfur_dioxide) so2 
+              FROM `environmental_performance` join zones on zone_id=zones.id
+              group by zone_name
+              order by zone_name";
+    $results = $db->query($query);
+    $return_val = array();
+    
+    $zones = array();
+    $co2 = array();
+    $no = array();
+    $co = array();
+    $so2 = array();
+    
+    if($results){
+        
+        $data = $results->fetch_all(MYSQLI_ASSOC);
+        
+        foreach($data as $row){
+            array_push($zones, $row['zone_name']);
+            array_push($co2, (int) $row['co2']);
+            array_push($no, (int) $row['no']);
+            array_push($co, (int) $row['co']);
+            array_push($so2, (int) $row['so2']);
+        }
+        
+        $return_val = array($zones, $co2, $no, $co, $so2);
+        
+        
+    }
+    
+    return json_encode($return_val);
     
 }
 //$players = get_all_players($db);
@@ -77,6 +135,15 @@ print_r($average_operational_performance);
 echo "<script> var average_operational_performance=$average_operational_performance; </script>";
 echo "<script> var operational_types = ['Commercial', 'Industrial', 'Residential']; </script>";
 
+$average_economic_performance = get_average_economic_performance($db);
+print_r($average_economic_performance);
+
+echo "<script> var average_economic_performance=$average_economic_performance; </script>";
+
+$average_environmental_performance = get_average_environmental_performance($db);
+
+print_r($average_environmental_performance);
+echo "<script> var average_environmental_performance=$average_environmental_performance; </script>";
 
 ?>
 
@@ -104,9 +171,17 @@ echo "<script> var operational_types = ['Commercial', 'Industrial', 'Residential
   <div id="player-data-container">
     <div class="container-fluid">
         <div class="row graph-row">
-          <div class="col-lg-4 graph-container">
+          <div class="col-lg-6 graph-container">
                 <h3> Average Operational Performance </h3>
                 <div id="average-operational-performance" class="bar"></div>    
+            </div>
+          <div class="col-lg-6 graph-container">
+                <h3> Average Economic Performance </h3>
+                <div id="average-economic-performance" class="bar"></div>    
+            </div> 
+            <div class="col-lg-12 graph-container">
+                <h3> Average Environmental Performance </h3>
+                <div id="average-environmental-performance" class="bar"></div>    
             </div>
         </div> <!-- end row -->
       </div> <!-- end container-fluid -->
