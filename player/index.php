@@ -7,7 +7,7 @@
         //echo $_GET['player_id'];
         $name = Database::get_player_name($_GET['player_id']);
         $current_economic_performance = Helpers::format_current_economic_performance_data(Database::get_current_economic_performance($id));
-        //print_r($current_economic_performance);
+        print_r($current_economic_performance);
         echo "<script> var current_economic_data=" . json_encode($current_economic_performance) . ";</script>";
         
         //$coal_cost = Database::get_econ_cost_by_tech('Coal');
