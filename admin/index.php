@@ -3,39 +3,6 @@ require_once( '../login.php');
 require_once('../includes/database.php');
 require_once('../includes/helper_functions.php');
 
-$fuel_forecast = Database::get_fuel_forecast();
-        
-//print_r($fuel_forecast);
-echo "<script> var fuel_forecast=$fuel_forecast</script>";
-        
-$years = Database::get_fuel_forecast_years();
-//print_r($years);
-echo "<script> var years=$years</script>";
-        
-$monthly_commit_data = Database::get_yearly_production_commit_by_type();
-//print_r($monthly_commit_data);
-echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
-
-$db  = new mysqli($hn, $un, $pw, $db);
-
-function get_all_players($db){
- $query = "SELECT user_id, username FROM users WHERE role='player'";
- 
- $results = $db->query($query);
- 
- if($results){
-     $players = $results->fetch_all(MYSQLI_ASSOC);
- }
-     foreach( $players as $player ){
-      //print_r($player);
-      //echo $player['id'];
-      $url = "/player/index.php?player_id=" . $player['user_id'];
-      echo "<a href=$url>" . $player['username'] . "</a><br>";
-     }
- return $players;
-}
-
-
 function get_average_operational_performance($db){
     $query = "SELECT type, AVG(reliability) reliability FROM operational_performance
               GROUP BY type
@@ -125,6 +92,41 @@ function get_average_environmental_performance($db){
     return json_encode($return_val);
     
 }
+
+$fuel_forecast = Database::get_fuel_forecast();
+        
+//print_r($fuel_forecast);
+echo "<script> var fuel_forecast=$fuel_forecast</script>";
+        
+$years = Database::get_fuel_forecast_years();
+//print_r($years);
+echo "<script> var years=$years</script>";
+        
+$monthly_commit_data = Database::get_yearly_production_commit_by_type();
+//print_r($monthly_commit_data);
+echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
+
+$db  = new mysqli($hn, $un, $pw, $db);
+
+function get_all_players($db){
+ $query = "SELECT user_id, username FROM users WHERE role='player'";
+ 
+ $results = $db->query($query);
+ 
+ if($results){
+     $players = $results->fetch_all(MYSQLI_ASSOC);
+ }
+     foreach( $players as $player ){
+      //print_r($player);
+      //echo $player['id'];
+      $url = "/player/index.php?player_id=" . $player['user_id'];
+      echo "<a href=$url>" . $player['username'] . "</a><br>";
+     }
+ return $players;
+}
+
+
+
 //$players = get_all_players($db);
 
 //print_r($players);
@@ -144,6 +146,20 @@ $average_environmental_performance = get_average_environmental_performance($db);
 
 print_r($average_environmental_performance);
 echo "<script> var average_environmental_performance=$average_environmental_performance; </script>";
+
+$fuel_forecast = Database::get_fuel_forecast();
+        
+//print_r($fuel_forecast);
+echo "<script> var fuel_forecast=$fuel_forecast</script>";
+
+$years = Database::get_fuel_forecast_years();
+//print_r($years);
+echo "<script> var years=$years</script>";
+
+$monthly_commit_data = Database::get_yearly_production_commit_by_type();
+print_r($monthly_commit_data);
+echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
+
 
 ?>
 
@@ -165,27 +181,46 @@ echo "<script> var average_environmental_performance=$average_environmental_perf
 </head>
 <body>
 
-  <h1> Admin Panel </h1>
+  <div class="player-container">
+      <h1> Admin Panel </h1>
   <?php get_all_players($db); ?>
   
   <div id="player-data-container">
     <div class="container-fluid">
         <div class="row graph-row">
           <div class="col-lg-6 graph-container">
-                <h3> Average Operational Performance </h3>
+                <h3> Percentage of Reliability  </h3>
+                <h4>Run Time/Available Run Time</h4>
                 <div id="average-operational-performance" class="bar"></div>    
             </div>
           <div class="col-lg-6 graph-container">
                 <h3> Average Economic Performance </h3>
+                <h4> </h4>
                 <div id="average-economic-performance" class="bar"></div>    
             </div> 
+        </div>
+        <div class="row graph-row">
             <div class="col-lg-12 graph-container">
                 <h3> Average Environmental Performance </h3>
                 <div id="average-environmental-performance" class="bar"></div>    
             </div>
+        </div>
+            <div class="row graph-row"> <!-- beginning of fuel forecast and production commit -->
+            <div class="col-lg-6 graph-container">
+                <h3> fuel forecast </h3>
+                <div id="fuel-forecast" class="line"></div>    
+            </div>
+            
+            <div class="col-lg-6 graph-container">
+                <h3> production commit </h3>
+                <div id="yearly-production-commit" class="line"></div>    
+            </div>
+        </div> 
         </div> <!-- end row -->
       </div> <!-- end container-fluid -->
     </div> <!-- end graph container -->
+  </div>
+  
   
   
   
