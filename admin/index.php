@@ -184,11 +184,23 @@ echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
   <div class="player-container">
       <h1> Admin Panel </h1>
   <?php get_all_players($db); ?>
-  
+  <div class="container-fluid">
+      <div class="row">
+          
+          <div class="col-sm-1"> 
+              <span class="btn btn-primary" id="toggleReliability">Toggle Reliability </span> 
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-1"> 
+              <span class="btn btn-primary" id="toggleReliability">Toggle Reliability </span> 
+          </div>
+
+      </div>
+  </div>
   <div id="player-data-container">
     <div class="container-fluid">
         <div class="row graph-row">
-          <div class="col-lg-6 graph-container">
+          <div class="col-lg-6 graph-container" id="operational-performance-graph">
                 <h3> Percentage of Reliability  </h3>
                 <h4>Run Time/Available Run Time</h4>
                 <div id="average-operational-performance" class="bar"></div>    
@@ -207,19 +219,19 @@ echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
         </div>
             <div class="row graph-row"> <!-- beginning of fuel forecast and production commit -->
             <div class="col-lg-6 graph-container">
-                <h3> fuel forecast </h3>
+                <h3> Fuel forecast </h3>
                 <div id="fuel-forecast" class="line"></div>    
             </div>
             
             <div class="col-lg-6 graph-container">
-                <h3> production commit </h3>
+                <h3> Production commit </h3>
                 <div id="yearly-production-commit" class="line"></div>    
             </div>
         </div> 
         </div> <!-- end row -->
       </div> <!-- end container-fluid -->
     </div> <!-- end graph container -->
-  </div>
+  </div> <!-- end player-data-container -->
   
   
   

@@ -312,15 +312,15 @@ class Database{
         return $data; 
     }
     
-    public static function get_current_environmental_performance(){
+    public static function get_current_environmental_performance($id){
         
         $round = self::get_current_round();
         //echo "round: $round <br>";
         
-        $co2 = self::get_current_emissions_by_pollutant('carbon_dioxide', $round);
-        $co = self::get_current_emissions_by_pollutant('carbon_monoxide', $round);
-        $no = self::get_current_emissions_by_pollutant('nitrous_oxide', $round);
-        $so2 = self::get_current_emissions_by_pollutant('sulfur_dioxide', $round);
+        $co2 = self::get_current_emissions_by_pollutant('carbon_dioxide', $round, $id);
+        $co = self::get_current_emissions_by_pollutant('carbon_monoxide', $round, $id);
+        $no = self::get_current_emissions_by_pollutant('nitrous_oxide', $round, $id);
+        $so2 = self::get_current_emissions_by_pollutant('sulfur_dioxide', $round, $id);
         
         return array($co2, $co, $no, $so2);
         
@@ -329,11 +329,12 @@ class Database{
                 
     }
     
-    public static function get_current_emissions_by_pollutant($pollutant, $round){
+    public static function get_current_emissions_by_pollutant($pollutant, $round, $id){
         
         $query = "SELECT $pollutant FROM environmental_performance where round_id IN (
                     SELECT MAX(round_id) FROM environmental_performance
                   )
+                  and player_id=$id
                   ORDER BY zone_id ASC";
         //echo $query . "<br>";
         $results = self::$db->query($query);

@@ -36,7 +36,7 @@
         
         echo "<script> var historical_operational_performance = " . $historical_operational_performance . "; </script>";
         
-        $current_environmental_performance = json_encode(Database::get_current_environmental_performance());
+        $current_environmental_performance = json_encode(Database::get_current_environmental_performance($id));
         
         //print_r( $current_environmental_performance);
         
