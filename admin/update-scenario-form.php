@@ -10,7 +10,7 @@ if($db->connect_error) die($db->connect_error);
 
 
 
-$query = "select * from technology_cost where technology='Onshore Wind' AND year =2016 limit 1";
+$query = "select * from technology_cost where technology='Solar' AND year =2016 limit 1";
 $result = $db->query($query);
 $row = $result->fetch_array(MYSQLI_BOTH);
 $test= $db->fetch_array;
@@ -24,7 +24,7 @@ $current_mincap = $row['min_capacity'];
 $current_maxcap = $row['max_capacity'];
 $current_coemissions = $row['carbon_dioxide'];
 
-$query = "select * from technology_cost where technology='Onshore Wind' AND year =2021 limit 1";
+$query = "select * from technology_cost where technology='Solar' AND year =2021 limit 1";
 $result = $db->query($query);
 $row = $result->fetch_array(MYSQLI_BOTH);
 $test= $db->fetch_array;
@@ -55,24 +55,37 @@ $current_coemissions5y = $row['carbon_dioxide'];
 
 
 
+
+<?php
+session_start();
+
+if (!empty($_SESSION['error'])){
+?>
+<div class="alert alert-danger">
+    <?php
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+    }
+    ?>
+</div>
 <form method="GET" action="update-scenario-form-submit.php" id="editscenarioform">
     <div class="panel panel-default">
-        <div class="panel-heading"> Wind Variables </div>
+        <div class="panel-heading"> Solar Variables </div>
         <div class="panel-body">
             <div class="form-group">
-                <label for="fixedcost"> Fixed cost </label>
+                <label for="fixedcost"> Fixed Cost ($/kW-yr) </label>
                 <input  type="number" id="fixedcost" class="form-control" name="fixed_cost"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_fixcost); ?></small>
             </div>
             <div class="form-group">
-                <label for="varcost"> Variable cost</label>
+                <label for="varcost"> Variable Costs ($/MWh)</label>
                 <input  type="number" id="varcost" class="form-control" name="variable_cost"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_varcost); ?></small>
             </div>
 
 
             <div class="form-group">
-                <label> Capital cost</label>
+                <label> Overnight Capital Cost ($/kW)</label>
                 <input  type="number" class="form-control" name="capital_cost"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_capcost); ?></small>
             </div>
@@ -84,19 +97,19 @@ $current_coemissions5y = $row['carbon_dioxide'];
             </div>
 
             <div class="form-group">
-                <label> Minimum capacity </label>
+                <label> Minimum capacity (MW) </label>
                 <input  type="number" class="form-control" name="min_capacity"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_mincap); ?></small>
             </div>
 
             <div class="form-group">
-                <label> Maximum capacity </label>
+                <label> Maximum capacity (MW)</label>
                 <input  type="number" class="form-control" name="max_capacity"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_maxcap); ?></small>
             </div>
 
             <div class="form-group">
-                <label> CO2 emissions </label>
+                <label> CO2 emissions (ppm)</label>
                 <input  type="number" class="form-control" name="co_emissions"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_coemissions); ?></small>
             </div>
@@ -105,42 +118,42 @@ $current_coemissions5y = $row['carbon_dioxide'];
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading"> Wind Variables 5 Years from present</div>
+        <div class="panel-heading"> Solar Variables 5 Years from present</div>
         <div class="panel-body">
 
             <div class="form-group">
                 <label> Fixed cost  </label>
-                <input  type="number" class="form-control" name="fixed_cost5yr"  required></input>
+                <input  type="number" class="form-control" name="fixed_cost5yr"  min="0" required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_fixcost5y); ?></small>
             </div>
             <div class="form-group">
                 <label> Variable cost </label>
-                <input  type="number" class="form-control" name="variable_cost5yr"  required></input>
+                <input  type="number" class="form-control" name="variable_cost5yr"  min="0"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_varcost5y); ?></small>
             </div>
             <div class="form-group">
                 <label> Capital cost </label>
-                <input  type="number" class="form-control" name="capital_cost5yr"  required></input>
+                <input  type="number" class="form-control" name="capital_cost5yr" min="0"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_capcost5y); ?></small>
             </div>
             <div class="form-group">
                 <label> Nominal capacity </label>
-                <input  type="number" class="form-control" name="nominal_capacity5yr"  required></input>
+                <input  type="number" class="form-control" name="nominal_capacity5yr"  min="0" required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_nomcap5y); ?></small>
             </div>
             <div class="form-group">
                 <label> Minimum capacity  </label>
-                <input  type="number" class="form-control" name="min_capacity5yr"  required></input>
+                <input  type="number" class="form-control" name="min_capacity5yr" min="0"  required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_mincap5y); ?></small>
             </div>
             <div class="form-group">
                 <label> Maximum capacity  </label>
-                <input  type="number" class="form-control" name="max_capacity5yr"  required></input>
+                <input  type="number" class="form-control" name="max_capacity5yr"  min="0" required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_maxcap5y); ?></small>
             </div>
             <div class="form-group">
                 <label> CO2 emissions  </label>
-                <input  type="number" class="form-control" name="co_emissions5yr"  required></input>
+                <input  type="number" class="form-control" name="co_emissions5yr" min="0" required></input>
                 <small  class="form-text text-muted">Current value: <?php echo ($current_coemissions5y); ?></small>
             </div>
         </div>

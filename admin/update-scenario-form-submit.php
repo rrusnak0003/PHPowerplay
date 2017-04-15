@@ -1,6 +1,7 @@
 <?php
 
 require_once("../includes/database.php");
+session_start();
 
 $fixcost = $_GET['fixed_cost'];
 $varcost = $_GET['variable_cost'];
@@ -25,7 +26,7 @@ function findTech($db, $year){
 
 
 
-    $query = "select * from technology_cost where technology='Onshore Wind' AND year =$year";
+    $query = "select * from technology_cost where technology='Solar' AND year =$year";
 
     $tech = $db->query($query);
 
@@ -60,36 +61,41 @@ if($db->connect_error)
     die($db->connect_error);
 
 }
-if(findTech($db, 2016)){
+if(findTech($db, 2016) && ($mincap<$maxcap) ){
     $query = "INSERT INTO technology_cost (year, technology, technical, overnight_capital, fixed_cost, variable_cost, min_capacity, nominal_capacity, max_capacity,  carbon_dioxide)
-                  VALUES (2016, 'Onshore Wind', 'Onshore Wind (WN)', $capcost, $fixcost,$varcost, $mincap, $nomcap,$maxcap, $coemissions )";
+                  VALUES (2016, 'Solar', 'Photovoltaic - Fixed', $capcost, $fixcost,$varcost, $mincap, $nomcap,$maxcap, $coemissions )";
     $insert = $db->query($query);
 
 }
-else {
+elseif ($mincap<$maxcap){
     $query = "UPDATE technology_cost 
-                SET year = 2016, technology = 'Onshore Wind', technical = 'Onshore Wind (WN)', overnight_capital = $capcost, fixed_cost = $fixcost, variable_cost = $varcost, min_capacity = $mincap, max_capacity = $maxcap, nominal_capacity =  $nomcap, carbon_dioxide= $coemissions
-                WHERE year = 2016 AND  technology='Onshore Wind'";
+                SET year = 2016, technology = 'Solar', technical = 'Onshore Wind (WN)', overnight_capital = $capcost, fixed_cost = $fixcost, variable_cost = $varcost, min_capacity = $mincap, max_capacity = $maxcap, nominal_capacity =  $nomcap, carbon_dioxide= $coemissions
+                WHERE year = 2016 AND  technology='Solar'";
     $insert = $db->query($query);
+
+}
+else{
+    $_SESSION['error'] = 'Error: Changes not made, make sure maximum > minimum capacity';
 
 }
 
 
-if(findTech($db, 2021)){
+if(findTech($db, 2021) && ($mincap5yr<$maxcap5yr)){
     $query = "INSERT INTO technology_cost (year, technology, technical, overnight_capital, fixed_cost, variable_cost, min_capacity, nominal_capacity, max_capacity,  carbon_dioxide)
-                  VALUES (2021, 'Onshore Wind', 'Onshore Wind (WN)', $capcost5yr, $fixcost5yr,$varcost5yr, $mincap5yr, $nomcap5yr,$maxcap5yr, $coemissions5yr )";
+                  VALUES (2021, 'Solar', 'Photovoltaic - Fixed', $capcost5yr, $fixcost5yr,$varcost5yr, $mincap5yr, $nomcap5yr,$maxcap5yr, $coemissions5yr )";
     $insert = $db->query($query);
 
 }
-else {
+elseif ($mincap5yr<$maxcap5yr){
     $query = "UPDATE technology_cost 
-                SET year = 2021, technology = 'Onshore Wind', technical = 'Onshore Wind (WN)', overnight_capital = $capcost5yr, fixed_cost = $fixcost5yr, variable_cost = $varcost5yr, min_capacity = $mincap5yr, max_capacity = $maxcap5yr, nominal_capacity =  $nomcap5yr, carbon_dioxide= $coemissions5yr
-                WHERE year = 2021 AND  technology='Onshore Wind'";
+                SET year = 2021, technology = 'Solar', technical = 'Photovoltaic - Fixed', overnight_capital = $capcost5yr, fixed_cost = $fixcost5yr, variable_cost = $varcost5yr, min_capacity = $mincap5yr, max_capacity = $maxcap5yr, nominal_capacity =  $nomcap5yr, carbon_dioxide= $coemissions5yr
+                WHERE year = 2021 AND  technology='Solar'";
     $insert = $db->query($query);
 
 }
-
-
+else{
+    $_SESSION['error'] = 'Error: Changes not made to five year variables, make sure maximum > minimum capacity';
+}
 
 header('Location: ./update-scenario-form.php');
 ?>
