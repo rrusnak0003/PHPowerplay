@@ -220,3 +220,6 @@
 [11-Apr-2017 16:29:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/player/index.php:0
 [11-Apr-2017 16:29:42 UTC] PHP   2. Database::get_yearly_production_commit_by_type() /home/ubuntu/workspace/player/index.php:62
 [11-Apr-2017 16:29:42 UTC] PHP   3. Database::get_monthly_production_commit_by_type_for_year() /home/ubuntu/workspace/includes/database.php:539
+[12-Apr-2017 01:01:23 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/admin/index.php on line 14
+[13-Apr-2017 01:57:00 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/ubuntu/workspace/admin/index.php on line 67
+[13-Apr-2017 02:10:27 UTC] PHP Parse error:  syntax error, unexpected '$temp' (T_VARIABLE), expecting '(' in /home/ubuntu/workspace/admin/index.php on line 51
