@@ -296,7 +296,9 @@ class Database{
     }
     
     public static function get_operational_zones(){
-        $query = "SELECT DISTINCT zone_id FROM operational_performance"; 
+        $query = "SELECT zone_name from zones where id in (
+            SELECT distinct zone_id FROM operational_performance
+            )"; 
         
         $results = self::$db->query($query);
         
@@ -305,7 +307,7 @@ class Database{
         if($results){
             $zones = $results->fetch_all(MYSQLI_ASSOC);
             foreach( $zones as $zone){
-                array_push( $data, (int) $zone['zone_id']);
+                array_push( $data, $zone['zone_name']);
             }
         }
         
