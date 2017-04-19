@@ -132,19 +132,19 @@ function get_all_players($db){
 //print_r($players);
 
 $average_operational_performance = get_average_operational_performance($db);
-print_r($average_operational_performance);
+//print_r($average_operational_performance);
 
 echo "<script> var average_operational_performance=$average_operational_performance; </script>";
 echo "<script> var operational_types = ['Commercial', 'Industrial', 'Residential']; </script>";
 
 $average_economic_performance = get_average_economic_performance($db);
-print_r($average_economic_performance);
+//print_r($average_economic_performance);
 
 echo "<script> var average_economic_performance=$average_economic_performance; </script>";
 
 $average_environmental_performance = get_average_environmental_performance($db);
 
-print_r($average_environmental_performance);
+//print_r($average_environmental_performance);
 echo "<script> var average_environmental_performance=$average_environmental_performance; </script>";
 
 $fuel_forecast = Database::get_fuel_forecast();
@@ -157,7 +157,7 @@ $years = Database::get_fuel_forecast_years();
 echo "<script> var years=$years</script>";
 
 $monthly_commit_data = Database::get_yearly_production_commit_by_type();
-print_r($monthly_commit_data);
+//print_r($monthly_commit_data);
 echo "<script> var monthly_commit_data=$monthly_commit_data </script>";
 
 
